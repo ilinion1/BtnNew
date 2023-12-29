@@ -25,10 +25,19 @@ class OrangeTabBar extends StatelessWidget {
                 padding: EdgeInsets.only(top: 10.h),
                 child: SizedBox(
                   width: double.infinity,
-                  child: Text(
-                    'Ride 17 of 38',
-                    style: AppTextStyle.tabbarTitle,
-                    textAlign: TextAlign.center,
+                  child: Column(
+                    children: [
+                      Text(
+                        'Ride 17 of 38',
+                        style: AppTextStyle.tabbarTitle,
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        'Tables',
+                        style: AppTextStyle.tabbarTitle,
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
                 ),
               ),

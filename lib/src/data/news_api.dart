@@ -1,12 +1,10 @@
-import 'dart:math';
-
 import 'package:dio/dio.dart';
 import 'package:footbal_app/src/entity/news.dart';
 import 'package:html/parser.dart';
 import 'package:xml/xml.dart';
 
 class NewsApi {
-  static Future<List<News>> getNews(int leagueId) async {
+  static Future<List<News>> getNews() async {
     List<News> newsList = [];
 
     var response =
@@ -47,13 +45,13 @@ class NewsApi {
         newsList.add(news);
       }
 
-      newsList.shuffle();
+      // newsList.shuffle();
 
-      final rand = Random();
-      final count = rand.nextInt(8);
+      // final rand = Random();
+      // final count = rand.nextInt(8);
 
-      final subNews = newsList.sublist(count * 10, count * 10 + 12);
-      return subNews;
+      // final subNews = newsList.sublist(count * 10, count * 10 + 12);
+      return newsList;
     } else {
       throw Exception(response.statusCode);
     }

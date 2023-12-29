@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:footbal_app/src/common/router/router.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:footbal_app/src/common/const/app_colors.dart';
-import 'package:footbal_app/src/ui/pages/get_started_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  const app = MyApp();
+  runApp(app);
 }
 
 class MyApp extends StatelessWidget {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(393, 852),
-      child: MaterialApp(
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         darkTheme: ThemeData.dark().copyWith(
           colorScheme: const ColorScheme.dark().copyWith(
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
         ),
         themeMode: ThemeMode.dark,
         title: 'Football App',
-        home: const GetStartedPage(),
+        routerConfig: AppRouter.router(),
+        // home: const GetStartedPage(),
         // home: FutureBuilder(
         //   future: _loadData(),
         //   builder: (BuildContext context, AsyncSnapshot snapshot) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:footbal_app/src/common/const/app_colors.dart';
 import 'package:footbal_app/src/common/const/app_images.dart';
-import 'package:footbal_app/src/ui/pages/league_page.dart';
+import 'package:go_router/go_router.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({
@@ -91,12 +91,7 @@ class GetStartedPage extends StatelessWidget {
                   foregroundColor: Colors.grey,
                 ),
                 onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const LeaguePage(),
-                    ),
-                  );
+                  context.go('/league');
                 },
                 child: Text(
                   'Continue',

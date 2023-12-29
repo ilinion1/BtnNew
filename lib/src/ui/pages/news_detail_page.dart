@@ -3,18 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:footbal_app/src/common/const/app_colors.dart';
 import 'package:footbal_app/src/common/const/app_text_styles.dart';
 import 'package:footbal_app/src/data/news_api.dart';
-import 'package:footbal_app/src/entity/league.dart';
 import 'package:footbal_app/src/entity/news.dart';
 
 class NewsDetailPage extends StatefulWidget {
   const NewsDetailPage({
     super.key,
     required this.news,
-    required this.league,
   });
 
   final News news;
-  final League league;
 
   @override
   State<NewsDetailPage> createState() => _NewsPageState();
@@ -36,28 +33,12 @@ class _NewsPageState extends State<NewsDetailPage> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
+          toolbarHeight: 80.h,
           backgroundColor: Colors.transparent,
           centerTitle: true,
-          title: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ClipOval(
-                child: Image.network(
-                  widget.league.logo,
-                  width: 24.w,
-                  height: 24.w,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              SizedBox(width: 10.w),
-              ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 200.w),
-                child: Text(
-                  widget.league.name,
-                  style: AppTextStyle.leagueTitle,
-                ),
-              ),
-            ],
+          title: Text(
+            'News',
+            style: AppTextStyle.leagueTitle,
           ),
         ),
         body: SingleChildScrollView(

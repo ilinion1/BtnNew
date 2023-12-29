@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:dio/dio.dart';
 import 'package:footbal_app/src/common/const/api_const.dart';
 import 'package:footbal_app/src/entity/league.dart';
@@ -8,7 +6,6 @@ import 'package:footbal_app/src/entity/league.dart';
 
 class LeagueApi {
   static Future<Iterable<League>> getLeagues() async {
-    final rand = Random();
     final dio = Dio();
     const url = '${ApiConst.hostUrl}/leagues?season=2022';
     final response = await dio.get(
@@ -22,9 +19,7 @@ class LeagueApi {
       final List<dynamic> leagueJson = response.data["response"];
       final leagues =
           leagueJson.map((e) => League.fromMap(e["league"])).toList();
-      final countLeagues = rand.nextInt(400);
-      print(leagues.length);
-      final subLeagues = leagues.sublist(countLeagues, countLeagues + 50);
+      final subLeagues = leagues.sublist(0, 50);
       return subLeagues;
     } else {
       throw Exception(response.statusCode);

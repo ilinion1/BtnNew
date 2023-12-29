@@ -4,7 +4,7 @@ import 'package:footbal_app/src/common/const/app_colors.dart';
 import 'package:footbal_app/src/common/const/app_text_styles.dart';
 import 'package:footbal_app/src/data/league_api.dart';
 import 'package:footbal_app/src/entity/league.dart';
-import 'package:footbal_app/src/ui/pages/home_page.dart';
+import 'package:go_router/go_router.dart';
 
 class LeaguePage extends StatefulWidget {
   const LeaguePage({super.key});
@@ -62,7 +62,6 @@ class _LeaguePageState extends State<LeaguePage> {
 
 class _LeagueWidget extends StatelessWidget {
   const _LeagueWidget({
-    super.key,
     required this.league,
   });
 
@@ -74,14 +73,7 @@ class _LeagueWidget extends StatelessWidget {
       padding: EdgeInsets.only(top: 10.h),
       child: GestureDetector(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => HomePage(
-                league: league,
-              ),
-            ),
-          );
+          context.goNamed('teams', extra: league);
         },
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20.r),
